@@ -49,4 +49,7 @@ then navigate to Admin Tools -> Settings -> Extensions and configure the OIDC se
 
 <img src="https://github.com/user-attachments/assets/965ec358-3dd9-49a1-abac-90f86083ab6f" width=75%>
 
+# Notes
 this will get you logged in. refer to the original OIDC extension for configuring role / group mappings. 
+
+this implementation is extremely rough and skips basically all checksumming / security features which would make it vulnerable to many kinds of attacks. **don't use in a public facing production environment!**.
