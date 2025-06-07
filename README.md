@@ -47,7 +47,7 @@ here's an example config for Authelia:
 open SeedDMS, navigate to Admin Tools -> Extensions and refresh the list to make sure OIDC appears and comes online
 then navigate to Admin Tools -> Settings -> Extensions and configure the OIDC settings as follows
 
-<img src="https://github.com/user-attachments/assets/cea68a9f-e487-4d09-87f0-40c9bcabb8c7" width=75%>
+<img src="https://github.com/user-attachments/assets/bf4b57d9-75ce-4add-ae96-7f441cd20ebc" width=75%>
 
 # Notes
 this will get you logged in. refer to the original OIDC extension for configuring role / group mappings. 
