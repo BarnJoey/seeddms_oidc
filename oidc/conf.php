@@ -20,11 +20,6 @@ $EXT_CONF['oidc'] = array(
 			'type'=>'input',
 			'required'=>'required'
 		),
-		'userinfoEndpoint' => array(
-			'title'=>'User Info Endpoint (Required)',
-			'type'=>'input',
-			'required'=>'required'
-		),
 		'oidcClientId' => array(
 			'title'=>'Client ID (Required)',
 			'type'=>'input',
