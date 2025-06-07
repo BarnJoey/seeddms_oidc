@@ -161,13 +161,13 @@ class SeedDMS_OIDC_initDMS
 
 		$login = new SeedDMS_Controller_Login($array);
 
-		$OidcSettings = $oidcServer->requestUserInfo();
-		//OIDC settings
-		$username  = $OidcSettings[$oidcServer->UsernameClaim] ?? null;
-		$fullname  = $OidcSettings[$oidcServer->FullnameClaim] ?? null;
-		$email     = $OidcSettings[$oidcServer->EmailClaim] ?? null;
-		$roles     = $OidcSettings[$oidcServer->RoleClaim]  ?? null;
-		$groups    = $OidcSettings[$oidcServer->GroupClaim] ?? null;
+                $OidcUserInfo = $oidcServer->requestUserInfo();
+                //OIDC settings
+                $username  = $OidcUserInfo[$oidcServer->UsernameClaim] ?? null;
+                $fullname  = $OidcUserInfo[$oidcServer->FullnameClaim] ?? null;
+                $email     = $OidcUserInfo[$oidcServer->EmailClaim] ?? null;
+                $roles     = $OidcUserInfo[$oidcServer->RoleClaim]  ?? null;
+                $groups    = $OidcUserInfo[$oidcServer->GroupClaim] ?? null;
 		
 		//Check mandatory values obtained from settings
 		if (empty($username)) {
