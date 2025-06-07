@@ -538,7 +538,6 @@ class SeedDMS_OIDC_initDMS
 class SeedDMS_OIDC_Server
 {
 	public $Endpoint;
-	public $Userinfo_Endpoint;
 	public $RedirectUri;
 	public $PostLogoutRedirectUri;
 	public $UsernameClaim;
@@ -556,7 +555,6 @@ class SeedDMS_OIDC_Server
 	{
 		//Mandatory fields
 		$this->Endpoint      = $oidcSettings["oidcEndpoint"];
-		$this->Userinfo_Endpoint     = $oidcSettings["userinfoEndpoint"];
 		$this->RedirectUri           = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://") . $_SERVER["HTTP_HOST"] . "/index.php";
 		$this->PostLogoutRedirectUri = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://") . $_SERVER["HTTP_HOST"] . "/op/op.Logout.php";
 		$this->clientId      = $oidcSettings["oidcClientId"];
@@ -568,7 +566,7 @@ class SeedDMS_OIDC_Server
 		$this->RoleClaim     = $oidcSettings["oidcRole"]  ?? "roles";
 		$this->GroupClaim    = $oidcSettings["oidcGroup"] ?? "groups";
 
-		$this->configuration =  $this->CurlGetJson($this->Endpoint . ".well-known/openid-configuration");
+		$this->configuration =  $this->CurlGetJson($this->Endpoint . "/.well-known/openid-configuration");
 	}
 
     	public function requestUserInfo(?string $attribute = null) {
@@ -578,7 +576,7 @@ class SeedDMS_OIDC_Server
         	$headers = ["Authorization: Bearer " . $this->token->access_token,
             		'Accept: application/json'];
 
-        	$response = $this->CurlFetchJson($this->Userinfo_Endpoint,$headers);
+        	$response = $this->CurlFetchJson($this->configuration->userinfo_endpoint,$headers);
 
         	if($attribute === null) {
             		return $response;
