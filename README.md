@@ -1,4 +1,4 @@
-# SeedDMS OIDC extension
+# SeedDMS SSO OIDC extension
 
 Extension enables OIDC login for SeedDMS
 this is a modification of this extension here:
